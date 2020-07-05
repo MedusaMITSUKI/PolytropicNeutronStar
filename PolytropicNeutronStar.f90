@@ -1,7 +1,7 @@
 program polytrope
   implicit none
   ! 定数設定 (SI単位系)
-  double precision,parameter :: pi = atan(1.0) * 4.0      ! 円周率
+  double precision,parameter :: pi = atan(1.0d0) * 4.0d0  ! 円周率
   double precision,parameter :: G = 6.67408d-11           ! 万有引力定数
   double precision,parameter :: c = 2.99792458d+8         ! 光速定数
   double precision,parameter :: hbar = 1.0545718d-34      ! プランク定数
@@ -44,25 +44,25 @@ program polytrope
     ! 初期値設定
     dn = (nmax - nmin) * (dble(i) / dble(imax))
     n = nmin + dn
-    rhoc = 10d0 ** n   ! 星の中心密度
+    rhoc = 10.0d0 ** n ! 星の中心密度
     r = 0.1d0          ! 初期半径
     P = pressure(rhoc) ! 圧力
     m = 0d0            ! 星の初期質量
 
     ! Runge-Kutta
-    do while ( P > 0.0d0 )
+    do while ( P > 0d0 )
       k(1) = dr * dPdr( r, P, m )
-      k(2) = dr * dPdr( r + dr / 2d0, P + k(1) / 2d0, m ) 
-      k(3) = dr * dPdr( r + dr / 2d0, P + k(2) / 2d0, m ) 
+      k(2) = dr * dPdr( r + dr / 2.0d0, P + k(1) / 2.0d0, m ) 
+      k(3) = dr * dPdr( r + dr / 2.0d0, P + k(2) / 2.0d0, m ) 
       k(4) = dr * dPdr( r + dr, P + k(3), m ) 
 
       j(1) = dr * dmdr( r, m, P )
-      j(2) = dr * dmdr( r + dr / 2d0, m + j(1) / 2d0, P ) 
-      j(3) = dr * dmdr( r + dr / 2d0, m + j(2) / 2d0, P ) 
+      j(2) = dr * dmdr( r + dr / 2.0d0, m + j(1) / 2.0d0, P ) 
+      j(3) = dr * dmdr( r + dr / 2.0d0, m + j(2) / 2.0d0, P ) 
       j(4) = dr * dmdr( r + dr, m + j(3), P )  
 
-      m = m + ( j(1) + 2d0 * j(2) + 2d0 * j(3) + j(4) ) / 6d0 
-      P = P + ( k(1) + 2d0 * k(2) + 2d0 * k(3) + k(4) ) / 6d0
+      m = m + ( j(1) + 2.0d0 * j(2) + 2.0d0 * j(3) + j(4) ) / 6.0d0 
+      P = P + ( k(1) + 2.0d0 * k(2) + 2.0d0 * k(3) + k(4) ) / 6.0d0
       r = r + dr
     end do
 
@@ -107,8 +107,8 @@ contains
     double precision :: rho
     rho = density(P)
 
-    dPdr = -G * ( rho + P / c ** 2 ) * ( m + 4.0d0 * pi * r ** 3.0d0 * P / c ** 2 )
-    dPdr = dPdr / ( r ** 2.0d0 * ( 1 - 2.0d0 * G * m / ( r * c ** 2.0d0 ) ) )
+    dPdr = -G * ( rho + P / c ** 2.0d0 ) * ( m + 4.0d0 * pi * r ** 3.0d0 * P / c ** 2.0d0 )
+    dPdr = dPdr / ( r ** 2.0d0 * ( 1.0d0 - 2.0d0 * G * m / ( r * c ** 2.0d0 ) ) )
     return
   end function dPdr
 
