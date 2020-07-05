@@ -131,13 +131,9 @@ contains
     write (5, '(a)') 'set ylabel "Mass [Solar mass]"'
     write (5, '(a)') 'set mxtics 2'
     write (5, '(a)') 'set mytics 2'
-    !write (5, '(a)') 'set key right top box'
 
     ! M, Rが0に近い値の場合はグラフから省く
     write (5, '(a)') 'plot "polytrope.dat" using ($2 <= 1E-3? 1/0 : $2):($1 <= 1E-3? 1/0 : $1) with lines lw 3 notitle"'
-
-    write (5, '(a)') 'replot'
-    write (5, '(a)') 'set output'
     write (5, '(a)') 'pause -1'
   end subroutine setting_tov_gnuplot
 
