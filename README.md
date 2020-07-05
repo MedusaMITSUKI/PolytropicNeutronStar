@@ -10,11 +10,10 @@
 
 ## 使い方
 Fortranのプログラムをコンパイルし，実行すると
-計算ログファイルとグラフ描画用のGnuplotファイル
-- ```polytrope.dat```
-- ```polytrope.plt```
+- ```polytrope.dat``` ... 計算ログファイル
+- ```polytrope.plt``` ... グラフ描画用のGnuplotファイル
 
-が生成され，Gnuplotで計算結果が描画されます．
+が生成され，Gnuplotに計算結果が描画されます．
 
  ## パラメータについて
  Fortranプログラム内のGamma1の値を2.0 ~ 4.0の値に書き換えてみましょう．
