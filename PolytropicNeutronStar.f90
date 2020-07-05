@@ -138,4 +138,3 @@ contains
   end subroutine setting_tov_gnuplot
 
 end program polytrope
-
