@@ -1,5 +1,5 @@
 # PolytropicNeutronStar
- ポリトロープモデルを用いた中性子星の状態方程式をTOV方程式で解く．
+ Polytropeモデルの中性子星の状態方程式から星の半径と質量を求める．
 
 ## 詳細
 [YouTubeの動画](http://example.com)をご視聴ください．
