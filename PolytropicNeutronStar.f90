@@ -68,7 +68,7 @@ program polytrope
 
     ! 計算結果書き込み
     !! 出力は M [Solar mass], R [km], rhoc [kg m^{-3}]
-    write(1,*) m/Msun, r*1d-3, rhoc
+    write(1,*) m/Msun, r*1.0d-3, rhoc
   end do
 
   close(1)
