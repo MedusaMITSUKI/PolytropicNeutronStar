@@ -45,7 +45,7 @@ program polytrope
     dn = (nmax - nmin) * (dble(i) / dble(imax))
     n = nmin + dn
     rhoc = 10.0d0 ** n ! 星の中心密度
-    r = 0.1d0          ! 初期半径
+    r = 1.0d-6         ! 初期半径
     P = pressure(rhoc) ! 圧力
     m = 0d0            ! 星の初期質量
 
