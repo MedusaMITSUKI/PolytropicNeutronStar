@@ -2,7 +2,7 @@
  Polytropeモデルの中性子星の状態方程式から星の半径と質量を求める．
 
 ## 詳細
-[YouTubeの動画](http://example.com)をご視聴ください．
+[YouTubeの動画](https://youtu.be/aq2uTYEiGvg)をご視聴ください．
 
 ## 必要なツール
 - Fortranコンパイラ (gfortran等)
